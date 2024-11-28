@@ -2,11 +2,13 @@ spring:
   application:
     name: RedisApp
   datasource:
-    url: jdbc:postgresql://localhost:5433/postgres
+    url: jdbc:postgresql://localhost:5433/redis_app
     username: postgres
     password: postgres
   jpa:
     show-sql: true
+    hibernate:
+      ddl-auto: update
   cache:
     type: redis
   data:
@@ -18,3 +20,10 @@ security:
   jwt:
     secret-key: 9b5167a3340fc7adc3937c19cac50aba15bf16bee615b997468809216a388068
     expiration-time: 3600000 # in milliseconds
+
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          redis: DEBUG
